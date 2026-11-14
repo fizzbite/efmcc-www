@@ -103,7 +103,7 @@ p { margin: 0; text-wrap: pretty; }
 .masthead__row { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; padding-block: 1rem; transition: padding 0.3s var(--ease); }
 .masthead.is-scrolled .masthead__row { padding-block: 0.65rem; }
 
-.wordmark { display: inline-flex; flex-direction: column; align-items: flex-end; text-decoration: none; color: var(--ink); line-height: 1; font-size: clamp(1.3rem, 1.1rem + 0.9vw, 1.8rem); }
+.wordmark { display: inline-flex; flex-direction: column; align-items: flex-end; text-decoration: none; color: var(--ink); line-height: 1; font-size: clamp(1.3rem, 1.1rem + 0.9vw, 2rem); }
 .wordmark:hover { color: var(--ink); }
 .wordmark__name { font-weight: 600; font-size: 1em; letter-spacing: -0.035em; white-space: nowrap; }
 /* Tagline sized from the name: narrower than it and right-aligned, as in the logo */
@@ -426,3 +426,5 @@ textarea.input { min-height: 8.5rem; resize: vertical; line-height: 1.5; }
 .service h2.service__name { font-size: var(--step-1); letter-spacing: -0.015em; }
 .footer .wordmark:hover, .footer .wordmark:hover .wordmark__name { color: #9fd3e6; }
 .btn--dark:hover { color: #fff; }
+/* On phones the wordmark has its own row, so it can be larger and keep the tagline legible */
+@media (max-width: 480px) { .wordmark { font-size: min(1.9rem, 8.4vw); } }
