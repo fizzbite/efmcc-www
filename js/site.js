@@ -82,7 +82,7 @@
   // fallback (self-hosted Leaflet) so the map always shows. Either way it
   // loads only when the map nears the viewport.
   var GOOGLE_MAPS = {
-    key: "",            // Google Maps JavaScript API key (restrict it to your domains). See README.
+    key: "AIzaSyDkL46nzyOFykhNlLtoRq7Au82xguhVy4E", // Google Maps JavaScript API key (restrict it to your domains). See README.
     mapId: "DEMO_MAP_ID" // Replace with your own Map ID from Google Cloud for production.
   };
 
