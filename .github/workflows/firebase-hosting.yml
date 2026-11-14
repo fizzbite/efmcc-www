@@ -1,7 +1,8 @@
 # Deploys the site to Firebase Hosting.
 # - Push to main: deploys to the live site.
-# - Pull request: deploys a temporary preview and comments the link on the PR.
-# The Firebase project comes from .firebaserc. Needs the FIREBASE_SERVICE_ACCOUNT secret.
+# - Pull request: deploys a temporary preview (7 days) and comments the link on the PR.
+# Signs in to Google Cloud with Workload Identity Federation (no stored key).
+# The Firebase project comes from .firebaserc.
 name: Firebase Hosting
 
 on:
@@ -13,32 +14,55 @@ concurrency:
   group: firebase-hosting-${{ github.ref }}
   cancel-in-progress: true
 
+env:
+  WORKLOAD_IDENTITY_PROVIDER: REPLACE-WITH-PROVIDER
+  SERVICE_ACCOUNT: github-deploy@efmcc-27ea5.iam.gserviceaccount.com
+  FIREBASE_TOOLS: firebase-tools@14
+
 jobs:
   live:
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
     permissions:
       contents: read
+      id-token: write
     steps:
       - uses: actions/checkout@v5
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+      - uses: google-github-actions/auth@v2
         with:
-          repoToken: ${{ secrets.GITHUB_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
-          channelId: live
+          workload_identity_provider: ${{ env.WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ env.SERVICE_ACCOUNT }}
+      - name: Deploy to live site
+        run: npx --yes "$FIREBASE_TOOLS" deploy --only hosting --non-interactive
 
   preview:
-    # Secrets are not available to pull requests from forks, so skip those.
+    # Pull requests from forks can't sign in, so skip those.
     if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      checks: write
+      id-token: write
       pull-requests: write
     steps:
       - uses: actions/checkout@v5
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+      - uses: google-github-actions/auth@v2
         with:
-          repoToken: ${{ secrets.GITHUB_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
-          expires: 7d
+          workload_identity_provider: ${{ env.WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ env.SERVICE_ACCOUNT }}
+      - name: Deploy preview
+        id: deploy
+        run: |
+          npx --yes "$FIREBASE_TOOLS" hosting:channel:deploy "pr-${PR_NUMBER}" --expires 7d --non-interactive --json > deploy.json
+          url=$(jq -r '.result[].url' deploy.json | head -n1)
+          echo "url=$url" >> "$GITHUB_OUTPUT"
+          echo "Preview: $url" >> "$GITHUB_STEP_SUMMARY"
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+      - name: Comment preview link
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          URL: ${{ steps.deploy.outputs.url }}
+        run: |
+          body="Preview for ${GITHUB_SHA::7}: $URL (expires in 7 days)"
+          gh pr comment "$PR_NUMBER" --edit-last --body "$body" || gh pr comment "$PR_NUMBER" --body "$body"
