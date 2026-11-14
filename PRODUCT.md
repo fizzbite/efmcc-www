@@ -8,7 +8,7 @@ web
 
 ## Stack
 
-Assumed, awaiting confirmation: plain static HTML/CSS (no build step), so it can be hosted anywhere, including GitHub Pages or Netlify.
+Plain static HTML/CSS/JS with no build step. Hosting: Firebase Hosting, published by a pipeline (confirmed by Brian, 2026-11-14). The enquiry form posts to Formspree, so it does not depend on the host.
 
 ## Users
 
@@ -31,12 +31,12 @@ Source content (from the existing site, efmccambridge.co.uk):
 
 - Accountants, registered auditors and financial advisors.
 - Service described as "friendly, professional, and value for money".
-- Directors (confirmed by Brian, 2026-11-14): Mark Foley, Ian McLaughlin and David McCourt. Ian McLaughlin FCA has been with the firm since 2000 (old site). Qualifications for Mark and David are not yet confirmed. The old site's partners (Paul Foley, Christine Whiteman, Maurice Brennan) are no longer current and must not appear.
+- Directors (confirmed by Brian, 2026-11-14): Mark Foley, Ian McLaughlin and David McCourt. Qualifications (confirmed by Brian): Mark Foley FCA, Ian McLaughlin FCA, David McCourt FCCA CTA. Ian has been with the firm since 2000 (old site). The old site's partners (Paul Foley, Christine Whiteman, Maurice Brennan) are no longer current and must not appear.
 - Other staff named on the old site, without roles and not yet confirmed as current: Michael, Ann, Jane, Laura Clarke, Ciara Bradley, Sarah Whiteman, Clare Devlin.
 - Offices (confirmed by Brian): Main office, 6 Bayview Terrace, Derry, BT48 7EE, tel (028) 7126 6002. Hamilton Mews, The Diamond, Donegal Town, tel 00353 86 301 8034. 2D The Diamond, Ballycastle, Co. Antrim, BT54 6AW, tel (028) 2076 3687.
 - Company: EF McCambridge & Co. Ltd, registered in Northern Ireland (NI651954).
 
-Open decisions: the definitive services list (the old site lists none); a public email address; how contact-form submissions are delivered; staff and office photography.
+Open decisions: the definitive services list (the old site lists none); a public email address; the Formspree form ID and the address enquiries go to; staff and office photography.
 
 ## Brand Commitments
 

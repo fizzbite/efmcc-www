@@ -154,26 +154,36 @@
     status.hidden = true;
     if (!validate(true)) return;
 
+    var showError = function (msg) {
+      status.hidden = false;
+      status.className = "form-status form-status--error";
+      status.innerHTML = msg + ' <a href="tel:+442871266002">028 7126 6002</a>.';
+    };
+
+    var endpoint = form.getAttribute("action");
+    if (/YOUR_FORM_ID/.test(endpoint)) {
+      showError("Sorry, online enquiries aren’t switched on yet. Please ring our Derry office on");
+      return;
+    }
+
     var btn = form.querySelector('button[type="submit"]');
     var label = btn.querySelector("[data-label]");
     btn.disabled = true;
     label.textContent = "Sending…";
 
-    fetch(form.getAttribute("action"), {
+    fetch(endpoint, {
       method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(new FormData(form)).toString()
+      headers: { Accept: "application/json" },
+      body: new FormData(form)
     })
       .then(function (res) {
         if (!res.ok) throw new Error(String(res.status));
-        window.location.href = form.getAttribute("action");
+        window.location.href = form.getAttribute("data-thanks") || "thanks.html";
       })
       .catch(function () {
         btn.disabled = false;
         label.textContent = "Send enquiry";
-        status.hidden = false;
-        status.className = "form-status form-status--error";
-        status.innerHTML = 'Sorry, your enquiry didn’t send. Please try again, or ring Derry on <a href="tel:+442871266002">028 7126 6002</a>.';
+        showError("Sorry, your enquiry didn’t send. Please try again in a moment, or ring our Derry office on");
       });
   });
 

@@ -21,7 +21,13 @@ Then open http://localhost:8000. Opening the files directly from disk also works
 
 ## Enquiry form
 
-The form is set up for [Netlify Forms](https://docs.netlify.com/forms/setup/) (`data-netlify="true"` plus a honeypot field). On Netlify, submissions appear in the site dashboard and can be emailed on. On another host, point the form's `action` at a form service such as Formspree and keep `thanks.html` as the redirect.
+The contact form posts to [Formspree](https://formspree.io), so it works on any static host, including Firebase Hosting. To switch it on:
+
+1. Create a free Formspree account and a new form, with the address that should receive enquiries.
+2. Copy the form ID (the part after `/f/` in the endpoint URL).
+3. In `contact.html`, replace `YOUR_FORM_ID` in the form's `action` with that ID.
+
+Until then, submitting the form shows a message asking visitors to ring the Derry office. After a successful send, visitors land on `thanks.html`. The hidden `_gotcha` field is Formspree's spam honeypot.
 
 ## Fonts
 
