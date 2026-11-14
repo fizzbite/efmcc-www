@@ -40,7 +40,20 @@ Until then, submitting the form shows a message asking visitors to ring the Derr
 
 ## Office map
 
-The offices section on the home, team and contact pages has a map with a pin for each office. Clicking or tapping a pin, or tabbing to it and pressing Enter, shows the address, phone number and Call and Directions buttons. It uses [Leaflet](https://leafletjs.com) 1.9.4, self-hosted in `assets/vendor/leaflet/` (BSD-2-Clause), with [OpenStreetMap](https://www.openstreetmap.org/copyright) tiles, so no API key is needed. The map only loads when a visitor scrolls near it. Pin positions are set in the `lat`/`lng` values inside each page's map data. Derry and Ballycastle use their postcode centre and Donegal Town uses The Diamond, so adjust them if a pin isn't exactly on the door.
+The offices section on the home, team and contact pages has a map with a pin for each office. Clicking or tapping a pin, or tabbing to it and pressing Enter, shows the office's address and phone number, with Call and Directions buttons. The map only loads when a visitor scrolls near it.
+
+The map uses **Google Maps** once a key is set. Until then, or if Google rejects the key, it falls back to [OpenStreetMap](https://www.openstreetmap.org/copyright) using [Leaflet](https://leafletjs.com) 1.9.4. Leaflet is self-hosted in `assets/vendor/leaflet/` under the BSD-2-Clause licence.
+
+To switch on Google Maps:
+
+1. In Google Cloud, enable the **Maps JavaScript API** on a project with billing turned on.
+2. Create an API key and restrict it to **Websites** (HTTP referrers), for example `https://efmcc-27ea5.web.app/*` and your own domain. Under API restrictions, allow only the Maps JavaScript API.
+3. Create a **Map ID** (Google Maps Platform, Map management, type JavaScript). The pins need one.
+4. In `js/site.js`, set `GOOGLE_MAPS.key` and `GOOGLE_MAPS.mapId`.
+
+A browser map key is always visible in the page source, so restricting it in step 2 is what protects it.
+
+Pin positions are the `lat`/`lng` values in each page's map data. Derry and Ballycastle use their postcode centres and Donegal Town uses The Diamond, so adjust them if a pin isn't on the door.
 
 ## Fonts
 
