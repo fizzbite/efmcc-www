@@ -77,6 +77,134 @@
     });
   }
 
+  // ---- Office map ----
+  // Google Maps once GOOGLE_MAPS.key is set; until then an OpenStreetMap
+  // fallback (self-hosted Leaflet) so the map always shows. Either way it
+  // loads only when the map nears the viewport.
+  var GOOGLE_MAPS = {
+    key: "",            // Google Maps JavaScript API key (restrict it to your domains). See README.
+    mapId: "DEMO_MAP_ID" // Replace with your own Map ID from Google Cloud for production.
+  };
+
+  var mapBox = document.querySelector("[data-office-map]");
+  if (mapBox) {
+    var canvas = mapBox.querySelector("[data-map-canvas]");
+    var offices = JSON.parse(mapBox.querySelector('script[type="application/json"]').textContent);
+    var esc = function (t) {
+      return String(t).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; });
+    };
+    var PIN = '<svg class="pin__mark" viewBox="0 0 32 42" aria-hidden="true"><path d="M16 41s14-13.2 14-25A14 14 0 0 0 2 16c0 11.8 14 25 14 25Z" fill="#0d6382" stroke="#fff" stroke-width="2"/><circle cx="16" cy="16" r="5.5" fill="#fff"/></svg>';
+    var PHONE = '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3.5h3.2l1.6 4.2-2.1 1.4a11 11 0 0 0 7.2 7.2l1.4-2.1 4.2 1.6V19a1.5 1.5 0 0 1-1.6 1.5A16.5 16.5 0 0 1 3.5 5.1 1.5 1.5 0 0 1 5 3.5Z"/></svg>';
+    var MAPPIN = '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11Z"/><circle cx="12" cy="10" r="2.3"/></svg>';
+    var pinHTML = function (o) { return PIN + '<span class="pin__label">' + esc(o.place) + "</span>"; };
+    var popupHTML = function (o) {
+      return '<div class="popup"><p class="popup__place">' + esc(o.place) + "</p>" +
+        '<p class="popup__tag">' + esc(o.role) + " &middot; " + esc(o.juris) + "</p>" +
+        '<p class="popup__addr">' + o.addr.map(esc).join("<br>") + "</p>" +
+        '<a class="popup__tel tnum" href="tel:' + esc(o.telhref) + '">' + esc(o.tel) + "</a>" +
+        '<p class="popup__actions">' +
+        '<a class="btn" href="tel:' + esc(o.telhref) + '">' + PHONE + "Call</a>" +
+        '<a class="btn btn--ghost" href="' + esc(o.map) + '" target="_blank" rel="noopener">' + MAPPIN + 'Directions<span class="visually-hidden"> to ' + esc(o.place) + " (opens Google Maps)</span></a>" +
+        "</p></div>";
+    };
+    var loadScript = function (src, onerror) {
+      var s = document.createElement("script");
+      s.src = src;
+      s.async = true;
+      s.onerror = onerror;
+      document.head.appendChild(s);
+      return s;
+    };
+
+    // OpenStreetMap fallback
+    var initLeaflet = function () {
+      var start = function () {
+        var L = window.L;
+        var map = L.map(canvas, { scrollWheelZoom: false, dragging: !L.Browser.mobile, tap: true, zoomSnap: 0.25 });
+        L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          maxZoom: 19,
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+        var bounds = offices.map(function (o) {
+          L.marker([o.lat, o.lng], {
+            icon: L.divIcon({ className: "", html: '<span class="pin">' + pinHTML(o) + "</span>", iconSize: [32, 42], iconAnchor: [16, 42], popupAnchor: [0, -44] }),
+            title: o.place + ", show details", alt: o.place, riseOnHover: true, keyboard: true
+          }).addTo(map).bindPopup(popupHTML(o), { maxWidth: 300, autoPanPadding: [24, 24] });
+          return [o.lat, o.lng];
+        });
+        map.fitBounds(bounds, { paddingTopLeft: [40, 60], paddingBottomRight: [130, 30], maxZoom: 12 });
+        window.addEventListener("resize", function () { map.invalidateSize(); });
+      };
+      if (window.L) return start();
+      var css = document.createElement("link");
+      css.rel = "stylesheet";
+      css.href = "assets/vendor/leaflet/leaflet.css";
+      document.head.appendChild(css);
+      loadScript("assets/vendor/leaflet/leaflet.js", function () { mapBox.hidden = true; }).onload = start;
+    };
+
+    // Google Maps
+    var initGoogle = function () {
+      window.__efmMapsReady = function () {
+        google.maps.importLibrary("marker").then(function (lib) {
+          var map = new google.maps.Map(canvas, {
+            mapId: GOOGLE_MAPS.mapId,
+            disableDefaultUI: true,
+            zoomControl: true,
+            gestureHandling: "cooperative",
+            clickableIcons: false
+          });
+          var info = new google.maps.InfoWindow({ maxWidth: 300 });
+          var bounds = new google.maps.LatLngBounds();
+          offices.forEach(function (o) {
+            var el = document.createElement("span");
+            el.className = "pin";
+            el.innerHTML = pinHTML(o);
+            var marker = new lib.AdvancedMarkerElement({
+              map: map,
+              position: { lat: o.lat, lng: o.lng },
+              title: o.place + ", show details",
+              content: el,
+              gmpClickable: true
+            });
+            marker.addListener("click", function () {
+              info.setContent(popupHTML(o));
+              info.open({ anchor: marker, map: map });
+            });
+            bounds.extend({ lat: o.lat, lng: o.lng });
+          });
+          map.fitBounds(bounds, { top: 70, left: 40, right: 130, bottom: 30 });
+          google.maps.event.addListenerOnce(map, "idle", function () {
+            if (map.getZoom() > 12) map.setZoom(12);
+          });
+        }).catch(initLeaflet);
+      };
+      // Google calls this if the key is rejected (wrong key, domain not allowed, billing off).
+      window.gm_authFailure = function () {
+        canvas.innerHTML = "";
+        initLeaflet();
+      };
+      loadScript(
+        "https://maps.googleapis.com/maps/api/js?key=" + encodeURIComponent(GOOGLE_MAPS.key) +
+          "&v=weekly&loading=async&callback=__efmMapsReady",
+        initLeaflet
+      );
+    };
+
+    var startMap = function () { (GOOGLE_MAPS.key ? initGoogle : initLeaflet)(); };
+    if ("IntersectionObserver" in window) {
+      var mio = new IntersectionObserver(function (entries) {
+        if (entries.some(function (e) { return e.isIntersecting; })) {
+          mio.disconnect();
+          startMap();
+        }
+      }, { rootMargin: "400px 0px" });
+      mio.observe(mapBox);
+    } else {
+      startMap();
+    }
+  }
+
   // ---- Services: tick what you need, carry it to the enquiry form ----
   var svcForm = document.querySelector("[data-services]");
   if (svcForm) {

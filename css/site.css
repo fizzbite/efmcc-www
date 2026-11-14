@@ -428,3 +428,61 @@ textarea.input { min-height: 8.5rem; resize: vertical; line-height: 1.5; }
 .btn--dark:hover { color: #fff; }
 /* On phones the wordmark has its own row, so it can be larger and keep the tagline legible */
 @media (max-width: 480px) { .wordmark { font-size: min(1.9rem, 8.4vw); } }
+
+/* ---------- Office map ----------
+   Leaflet + OpenStreetMap tiles, loaded only when the map nears the viewport.
+   Without JavaScript the map is skipped; the office cards carry everything. */
+
+.office-map { display: none; }
+html.js .office-map {
+  display: block;
+  position: relative;
+  margin-bottom: clamp(1rem, 0.5rem + 1.5vw, 1.75rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--surface-2);
+  box-shadow: var(--shadow);
+}
+.office-map__canvas { height: clamp(23rem, 16rem + 20vw, 30rem); font-family: var(--font); }
+.office-map .leaflet-container { background: var(--surface-2); font: inherit; }
+.office-map .leaflet-tile-pane { filter: grayscale(1) brightness(1.06) contrast(0.88); }
+.office-map .leaflet-control-attribution { font-size: 0.72rem; background: rgb(255 255 255 / 0.85); color: var(--muted); }
+.office-map .leaflet-control-attribution a { color: var(--teal-ink); }
+.office-map .leaflet-bar { border: 1px solid var(--line); border-radius: var(--radius-sm); box-shadow: var(--shadow); overflow: hidden; }
+.office-map .leaflet-bar a { color: var(--ink); width: 34px; height: 34px; line-height: 34px; }
+.office-map .leaflet-bar a:hover { background: var(--surface); color: var(--teal-ink); }
+
+.pin { position: relative; display: block; width: 32px; height: 42px; }
+.pin__mark {
+  position: absolute; left: 0; top: 0; width: 32px; height: 42px;
+  filter: drop-shadow(0 6px 8px rgb(10 79 105 / 0.35));
+  transition: transform 0.3s var(--ease);
+  transform-origin: 50% 100%;
+}
+.pin__label {
+  position: absolute; left: 36px; top: 4px; white-space: nowrap;
+  padding: 0.2rem 0.6rem; border-radius: 999px; background: #fff; color: var(--ink);
+  font: 600 0.85rem/1.3 var(--font); box-shadow: 0 4px 12px -4px rgb(13 70 95 / 0.35);
+}
+.leaflet-marker-icon:hover .pin__mark,
+.leaflet-marker-icon:focus-visible .pin__mark,
+.pin.is-active .pin__mark { transform: scale(1.12); }
+.leaflet-marker-icon:focus-visible { outline: none; }
+.leaflet-marker-icon:focus-visible .pin__label { outline: 3px solid var(--teal); outline-offset: 2px; }
+
+.office-map .leaflet-popup-content-wrapper { border-radius: var(--radius); box-shadow: var(--shadow-lg); padding: 0; }
+.office-map .leaflet-popup-content { margin: 1.1rem 1.25rem 1.2rem; font: inherit; font-size: var(--step--1); line-height: 1.45; min-width: 14rem; }
+.office-map .leaflet-popup-content p { margin: 0; }
+.office-map .leaflet-popup-close-button { top: 0.4rem !important; right: 0.4rem !important; color: var(--muted) !important; font-size: 1.4rem !important; }
+.popup__place { font-size: var(--step-1); font-weight: 600; letter-spacing: -0.015em; color: var(--ink); }
+.popup__tag { color: var(--teal-ink); font-weight: 500; margin-top: 0.1rem !important; }
+.popup__addr { color: var(--muted); margin-top: 0.6rem !important; }
+.office-map .popup__tel { display: inline-block; margin-top: 0.5rem; font-size: var(--step-0); font-weight: 600; color: var(--ink); text-decoration: none; }
+.popup__actions { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.8rem; }
+.office-map .popup__actions .btn { padding: 0.5rem 0.9rem; font-size: 0.88rem; color: #fff; }
+.office-map .popup__actions .btn--ghost { color: var(--ink); }
+.office-map .gm-style { font-family: var(--font); }
+.office-map .gm-style .popup { font-size: var(--step--1); line-height: 1.45; padding: 0.15rem 0.25rem 0.35rem; }
+.popup p { margin: 0; }
+.office-map .gm-style .pin { cursor: pointer; }
