@@ -33,9 +33,11 @@
 </div>
 <section class="section" aria-labelledby="form-h">
   <div class="wrap enquiry">
-    <form name="enquiry" method="post" action="/thanks.html" data-enquiry data-netlify="true" netlify-honeypot="company_website" novalidate aria-labelledby="form-h" data-reveal>
-      <input type="hidden" name="form-name" value="enquiry">
-      <p class="hp"><label>Leave this empty <input name="company_website" tabindex="-1" autocomplete="off"></label></p>
+    <!-- Enquiries are sent through Formspree (works on any static host, including Firebase).
+         Replace YOUR_FORM_ID with the ID from formspree.io; see README. -->
+    <form name="enquiry" method="post" action="https://formspree.io/f/YOUR_FORM_ID" data-enquiry data-thanks="thanks.html" novalidate aria-labelledby="form-h" data-reveal>
+      <input type="hidden" name="_subject" value="New enquiry from the website">
+      <p class="hp"><label>Leave this empty <input name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
       <h2 id="form-h" class="visually-hidden">Enquiry form</h2>
       <div class="field">
         <label for="f-name">Your name</label>
