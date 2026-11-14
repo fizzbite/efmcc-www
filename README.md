@@ -19,6 +19,15 @@ python3 -m http.server 8000
 
 Then open http://localhost:8000. Opening the files directly from disk also works, but the self-hosted font will not load.
 
+## Hosting and deploys
+
+The site is hosted on Firebase Hosting and deployed by GitHub Actions (`.github/workflows/firebase-hosting.yml`):
+
+- A push or merge to `main` deploys to the live site.
+- A pull request gets a temporary preview site (kept for 7 days), and the link is posted on the PR.
+
+The Firebase project ID is set in `.firebaserc`. The workflow signs in to Google Cloud with Workload Identity Federation (no stored key) as the `github-deploy` service account. Only workflows in this repository can use it. `firebase.json` keeps the repo's tooling and notes (`.claude/`, `.impeccable/`, the Markdown files) off the public site.
+
 ## Enquiry form
 
 The contact form posts to [Formspree](https://formspree.io), so it works on any static host, including Firebase Hosting. To switch it on:
