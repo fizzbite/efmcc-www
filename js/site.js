@@ -45,38 +45,6 @@
     }, 1200);
   }
 
-  // ---- Office finder ----
-  var picker = document.querySelector("[data-picker]");
-  if (picker) {
-    var data = JSON.parse(picker.querySelector("[data-offices]").textContent);
-    var tel = picker.querySelector("[data-tel]");
-    var addr = picker.querySelector("[data-addr]");
-    var call = picker.querySelector("[data-call]");
-    var callLabel = picker.querySelector("[data-call-label]");
-    var map = picker.querySelector("[data-map]");
-    var timer;
-
-    picker.addEventListener("change", function (e) {
-      var o = data[e.target.value];
-      if (!o) return;
-      var apply = function () {
-        tel.textContent = o.tel;
-        tel.href = "tel:" + o.telhref;
-        addr.textContent = o.addr;
-        call.href = "tel:" + o.telhref;
-        callLabel.textContent = "Call " + o.place;
-        map.href = o.map;
-        tel.classList.remove("is-swapping");
-        addr.classList.remove("is-swapping");
-      };
-      clearTimeout(timer);
-      if (reduce) return apply();
-      tel.classList.add("is-swapping");
-      addr.classList.add("is-swapping");
-      timer = setTimeout(apply, 220);
-    });
-  }
-
   // ---- Office map ----
   // Google Maps once GOOGLE_MAPS.key is set; until then an OpenStreetMap
   // fallback (self-hosted Leaflet) so the map always shows. Either way it
@@ -181,6 +149,7 @@
       };
       // Google calls this if the key is rejected (wrong key, domain not allowed, billing off).
       window.gm_authFailure = function () {
+        if (window.console) console.warn("Google Maps rejected the API key; showing the OpenStreetMap map instead. See the Google Maps error above for the reason.");
         canvas.innerHTML = "";
         initLeaflet();
       };
