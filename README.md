@@ -19,6 +19,15 @@ python3 -m http.server 8000
 
 Then open http://localhost:8000. Opening the files directly from disk also works, but the self-hosted font will not load.
 
+## Hosting and deploys
+
+The site is hosted on Firebase Hosting and deployed by GitHub Actions (`.github/workflows/firebase-hosting.yml`):
+
+- A push or merge to `main` deploys to the live site.
+- A pull request gets a temporary preview site (kept for 7 days), and the link is posted on the PR.
+
+The Firebase project ID is set in `.firebaserc`. The workflow signs in with a Google Cloud service account key stored as the `FIREBASE_SERVICE_ACCOUNT` repository secret. `firebase.json` keeps the repo's tooling and notes (`.claude/`, `.impeccable/`, the Markdown files) off the public site.
+
 ## Enquiry form
 
 The form is set up for [Netlify Forms](https://docs.netlify.com/forms/setup/) (`data-netlify="true"` plus a honeypot field). On Netlify, submissions appear in the site dashboard and can be emailed on. On another host, point the form's `action` at a form service such as Formspree and keep `thanks.html` as the redirect.
