@@ -19,7 +19,7 @@ STORY: Visitor learns this is a director-led firm since 1935 working both sides 
 
 FIRST VIEWPORT: Sticky header with wordmark, nav and a dark call button. Left: three-line headline "Accounts, audit and tax, on both sides of the border." with lede, Send an enquiry and Our services buttons, and a facts row (1935, 3 offices, NI & ROI). Right: an elevated "Find your nearest office" card with three radio options, the number, address, Call and Directions.
 
-FORM: Canon (standard exit chosen by the user), seed: none (pinned) "Chose a clean modern style with some nice smooth animations on scrolling". Signature interaction: the office finder crossfades the number and address on selection. Motion grammar: hero headline lines rise from a mask on load; sections and cards fade up with a slight blur on scroll, staggered; header tightens on scroll. All disabled under reduced motion; content visible without JS.
+FORM: Canon, the standing exit the user took over the dealt direction (position 6, tax-form grammar); seed:c66292e63bf89d87. User's words: "Chose a clean modern style with some nice smooth animations on scrolling". Signature interaction: the office finder crossfades the number and address on selection. Authored scroll moment: on the cross-border comparison, the two jurisdictions slide in from opposite sides, the dashed border draws down between them, then the "one firm" band opens beneath. Quiet default elsewhere: hero lines rise from a mask on load; sections fade up with a slight blur; header tightens on scroll. All disabled under reduced motion; content visible without JS.
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
 
