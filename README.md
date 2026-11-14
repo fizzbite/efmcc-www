@@ -29,6 +29,10 @@ The contact form posts to [Formspree](https://formspree.io), so it works on any 
 
 Until then, submitting the form shows a message asking visitors to ring the Derry office. After a successful send, visitors land on `thanks.html`. The hidden `_gotcha` field is Formspree's spam honeypot.
 
+## Office map
+
+The offices section on the home, team and contact pages has a map with a pin for each office. Clicking or tapping a pin, or tabbing to it and pressing Enter, shows the address, phone number and Call and Directions buttons. It uses [Leaflet](https://leafletjs.com) 1.9.4, self-hosted in `assets/vendor/leaflet/` (BSD-2-Clause), with [OpenStreetMap](https://www.openstreetmap.org/copyright) tiles, so no API key is needed. The map only loads when a visitor scrolls near it. Pin positions are set in the `lat`/`lng` values inside each page's map data. Derry and Ballycastle use their postcode centre and Donegal Town uses The Diamond, so adjust them if a pin isn't exactly on the door.
+
 ## Fonts
 
 Jost is self-hosted from `assets/fonts/` under the SIL Open Font License 1.1.
