@@ -181,6 +181,7 @@
       };
       // Google calls this if the key is rejected (wrong key, domain not allowed, billing off).
       window.gm_authFailure = function () {
+        if (window.console) console.warn("Google Maps rejected the API key; showing the OpenStreetMap map instead. See the Google Maps error above for the reason.");
         canvas.innerHTML = "";
         initLeaflet();
       };
