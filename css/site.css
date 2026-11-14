@@ -486,3 +486,7 @@ html.js .office-map {
 .office-map .gm-style .popup { font-size: var(--step--1); line-height: 1.45; padding: 0.15rem 0.25rem 0.35rem; }
 .popup p { margin: 0; }
 .office-map .gm-style .pin { cursor: pointer; }
+/* Contact page: the map sits right under the heading, ahead of the form */
+.section--map { padding-bottom: 0; }
+.section--map .office-map { margin-bottom: 0; }
+.section--map + .section { padding-top: clamp(2.5rem, 2rem + 2vw, 3.5rem); }

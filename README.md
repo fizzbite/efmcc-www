@@ -40,7 +40,7 @@ Until then, submitting the form shows a message asking visitors to ring the Derr
 
 ## Office map
 
-The offices section on the home, team and contact pages has a map with a pin for each office. Clicking or tapping a pin, or tabbing to it and pressing Enter, shows the office's address and phone number, with Call and Directions buttons. The map only loads when a visitor scrolls near it.
+The contact page opens with a map showing a pin for each office. Clicking or tapping a pin, or tabbing to it and pressing Enter, shows the office's address and phone number, with Call and Directions buttons. The map only loads when a visitor scrolls near it.
 
 The map uses **Google Maps** once a key is set. Until then, or if Google rejects the key, it falls back to [OpenStreetMap](https://www.openstreetmap.org/copyright) using [Leaflet](https://leafletjs.com) 1.9.4. Leaflet is self-hosted in `assets/vendor/leaflet/` under the BSD-2-Clause licence.
 
