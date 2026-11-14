@@ -53,7 +53,7 @@ To switch on Google Maps:
 
 A browser map key is always visible in the page source, so restricting it in step 2 is what protects it.
 
-Pin positions are the `lat`/`lng` values in each page's map data. Derry and Ballycastle use their postcode centres and Donegal Town uses The Diamond, so adjust them if a pin isn't on the door.
+Pin positions are the `lat`/`lng` values in each page's map data. Derry and Ballycastle use their postcode centres and Donegal Town is on Castle Street, so adjust them if a pin isn't on the door.
 
 ## Fonts
 
