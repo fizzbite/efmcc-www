@@ -241,11 +241,11 @@
       },
       "title-lg": {
         "displayName": "Title Large",
-        "purpose": "Office names, the finder's phone number, hero fact figures."
+        "purpose": "Office names, office phone numbers, hero fact figures."
       },
       "title": {
         "displayName": "Title",
-        "purpose": "Card and service headings, director names, finder legend."
+        "purpose": "Card and service headings, director names."
       },
       "lede": {
         "displayName": "Lede",
@@ -273,7 +273,7 @@
       {
         "name": "raised",
         "value": "0 2px 4px rgb(15 20 23 / 0.04), 0 28px 60px -24px rgb(13 70 95 / 0.32)",
-        "purpose": "The one most important object on a surface: the office finder, the services selection bar."
+        "purpose": "The one most important object on a surface: the services selection bar."
       },
       {
         "name": "header-scrolled",
@@ -305,7 +305,7 @@
       {
         "name": "state",
         "value": "0.25s",
-        "purpose": "Buttons, option rows, finder swap fade."
+        "purpose": "Buttons, option rows."
       },
       {
         "name": "state-slow",
@@ -321,11 +321,6 @@
         "name": "hero-lines",
         "value": "transform 1.15s from translateY(105%) inside a clipping line; delay 120ms + 110ms per line",
         "purpose": "Hero headline lines rise from a mask on load."
-      },
-      {
-        "name": "finder-swap",
-        "value": "fade, translateY(6px), blur(3px); content swapped after 220ms",
-        "purpose": "Office finder crossfade of number and address."
       },
       {
         "name": "border-moment",
@@ -438,14 +433,6 @@
       "css": ":host{--teal:#12789c;--teal-ink:#0d6382;--teal-dark:#0a4f69;--on-teal:#fff;--bg:#fff;--surface:#f2f7f8;--surface-2:#e6f1f4;--ink:#0f1417;--muted:#475960;--line:#d8e5e9;--error:#a32a1c;--radius:14px;--radius-sm:9px;--ease:cubic-bezier(0.16,1,0.3,1);--shadow:0 1px 2px rgb(15 20 23 / 0.04),0 12px 32px -12px rgb(13 70 95 / 0.18);--shadow-lg:0 2px 4px rgb(15 20 23 / 0.04),0 28px 60px -24px rgb(13 70 95 / 0.32);} .ds-director{max-width:24rem;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:1.5rem;display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:center;font-family:Jost, Futura, 'Century Gothic', system-ui, sans-serif;color:var(--ink);transition:transform .4s var(--ease),box-shadow .4s var(--ease);}.ds-director:hover{transform:translateY(-3px);box-shadow:var(--shadow);}.ds-mono{display:grid;place-items:center;width:3.5rem;height:3.5rem;border-radius:50%;background:var(--surface-2);color:var(--teal-dark);font-weight:600;font-size:1.15rem;letter-spacing:0.02em;}.ds-director h3{margin:0;font-size:1.35rem;font-weight:600;letter-spacing:-0.015em;line-height:1.08;}.ds-director p{margin:0.15rem 0 0;font-size:0.95rem;color:var(--muted);line-height:1.4;}"
     },
     {
-      "name": "Office Finder",
-      "kind": "custom",
-      "refersTo": "card-elevated",
-      "description": "Signature raised card: pick an office, get its number, address, Call and Directions.",
-      "html": "<form class=\"ds-finder\" onsubmit=\"return false\"><fieldset><legend>Find your nearest office</legend><label class=\"ds-opt\"><input type=\"radio\" name=\"ds-o\" checked><span><b>Derry</b><small>Main office, Northern Ireland</small></span></label><label class=\"ds-opt\"><input type=\"radio\" name=\"ds-o\"><span><b>Donegal Town</b><small>Co. Donegal, Republic of Ireland</small></span></label></fieldset><div class=\"ds-out\"><a class=\"ds-num\" href=\"#\">(028) 7126 6002</a><p>6 Bayview Terrace, Derry, BT48 7EE</p></div></form>",
-      "css": ":host{--teal:#12789c;--teal-ink:#0d6382;--teal-dark:#0a4f69;--on-teal:#fff;--bg:#fff;--surface:#f2f7f8;--surface-2:#e6f1f4;--ink:#0f1417;--muted:#475960;--line:#d8e5e9;--error:#a32a1c;--radius:14px;--radius-sm:9px;--ease:cubic-bezier(0.16,1,0.3,1);--shadow:0 1px 2px rgb(15 20 23 / 0.04),0 12px 32px -12px rgb(13 70 95 / 0.18);--shadow-lg:0 2px 4px rgb(15 20 23 / 0.04),0 28px 60px -24px rgb(13 70 95 / 0.32);} .ds-finder{max-width:24rem;background:#fff;border:1px solid var(--line);border-radius:calc(var(--radius) + 4px);box-shadow:var(--shadow-lg);overflow:hidden;font-family:Jost, Futura, 'Century Gothic', system-ui, sans-serif;color:var(--ink);font-size:1.1rem;}.ds-finder fieldset{border:0;margin:0;padding:0 1.25rem;display:grid;gap:0.45rem;}.ds-finder legend{padding:1.5rem 0.25rem 0.75rem;font-size:1.35rem;font-weight:600;letter-spacing:-0.015em;}.ds-opt{display:grid;grid-template-columns:1.35rem 1fr;gap:0.85rem;align-items:center;padding:0.75rem 0.9rem;border:1px solid var(--line);border-radius:var(--radius-sm);cursor:pointer;transition:border-color .25s var(--ease),background-color .25s var(--ease);}.ds-opt input{accent-color:var(--teal);margin:0;width:1.2rem;height:1.2rem;}.ds-opt:hover{border-color:color-mix(in srgb,var(--teal) 50%,var(--line));}.ds-opt:has(input:checked){border-color:var(--teal);background:var(--surface);}.ds-opt b{display:block;font-weight:600;line-height:1.2;}.ds-opt small{display:block;font-size:0.95rem;color:var(--muted);line-height:1.3;}.ds-out{margin-top:1rem;padding:1.25rem 1.5rem 1.5rem;background:var(--surface);border-top:1px solid var(--line);display:grid;gap:0.35rem;}.ds-num{font-size:1.8rem;font-weight:600;letter-spacing:-0.01em;line-height:1.15;text-decoration:none;color:var(--ink);font-variant-numeric:tabular-nums lining-nums;}.ds-num:hover{color:var(--teal-ink);}.ds-out p{margin:0;color:var(--muted);font-size:0.95rem;}"
-    },
-    {
       "name": "Cross-Border Comparison",
       "kind": "custom",
       "description": "Signature two-column card comparing NI and ROI, split by a dashed teal border, joined by a teal-ink foot.",
@@ -455,7 +442,7 @@
   ],
   "narrative": {
     "northStar": "The Front Desk",
-    "overview": "The site behaves like a well-run practice's front desk: tidy, light, unhurried, and always ready with the right phone number. It is the category standard played straight and well, a clean modern professional-services site, and its character comes from usefulness rather than ornament. The nearest office and its number sit in the first viewport; the two tax systems are laid side by side in plain words; the directors are named.\n\nVisually it is white ground, pale teal-grey bands, black geometric headings that echo the wordmark, and the logo's teal as the single accent. Surfaces are rounded cards with hairline borders and soft, long, blue-tinted shadows. Density is generous: large body text (about 17-20px), wide section padding, short measures. Motion is smooth and quiet: content fades up out of a slight blur as it scrolls in, hero lines rise from a mask, and one authored moment on the cross-border comparison. Everything still reads with motion reduced and with JavaScript off.\n\nThe old site's styling is explicitly discarded; nothing here should recall it.",
+    "overview": "The site behaves like a well-run practice's front desk: tidy, light, unhurried, and always ready with the right phone number. It is the category standard played straight and well, a clean modern professional-services site, and its character comes from usefulness rather than ornament. The nearest office is one tap away from the first viewport; the two tax systems are laid side by side in plain words; the directors are named.\n\nVisually it is white ground, pale teal-grey bands, black geometric headings that echo the wordmark, and the logo's teal as the single accent. Surfaces are rounded cards with hairline borders and soft, long, blue-tinted shadows. Density is generous: large body text (about 17-20px), wide section padding, short measures. Motion is smooth and quiet: content fades up out of a slight blur as it scrolls in, hero lines rise from a mask, and one authored moment on the cross-border comparison. Everything still reads with motion reduced and with JavaScript off.\n\nThe old site's styling is explicitly discarded; nothing here should recall it.",
     "keyCharacteristics": [
       "One accent: the logo teal, in three working shades, on buttons, links, selection, focus and one closing band.",
       "Black Jost headings at weight 600 with tight negative tracking, matching the wordmark.",

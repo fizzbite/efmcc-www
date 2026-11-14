@@ -8,9 +8,9 @@
 <meta name="theme-color" content="#ffffff">
 <script>document.documentElement.classList.add("js")</script>
 <link rel="preload" href="assets/fonts/jost-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/site.css?v=3700f937">
+<link rel="stylesheet" href="css/site.css?v=d325be5a">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<script src="js/site.js?v=96283614" defer></script>
+<script src="js/site.js?v=4cc9d5a1" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -39,65 +39,11 @@
     </div>
   </div>
 </section>
-<section class="section" aria-labelledby="form-h">
-  <div class="wrap enquiry">
-    <!-- Enquiries are sent through Formspree (works on any static host, including Firebase).
-         Replace YOUR_FORM_ID with the ID from formspree.io; see README. -->
-    <form name="enquiry" method="post" action="https://formspree.io/f/YOUR_FORM_ID" data-enquiry data-thanks="thanks.html" novalidate aria-labelledby="form-h" data-reveal>
-      <input type="hidden" name="_subject" value="New enquiry from the website">
-      <p class="hp"><label>Leave this empty <input name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
-      <h2 id="form-h" class="visually-hidden">Enquiry form</h2>
-      <div class="field">
-        <label for="f-name">Your name</label>
-        <input class="input" id="f-name" name="name" autocomplete="name" required>
-        <p class="field__error" id="f-name-err"></p>
-      </div>
-      <div class="field-row">
-        <div class="field">
-          <label for="f-phone">Phone</label>
-          <input class="input tnum" id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel">
-          <p class="field__error" id="f-phone-err"></p>
-        </div>
-        <div class="field">
-          <label for="f-email">Email</label>
-          <input class="input" id="f-email" name="email" type="email" autocomplete="email">
-          <p class="field__error" id="f-email-err"></p>
-        </div>
-      </div>
-      <p class="hint">Give us a phone number or an email address, whichever you'd rather we used.</p>
-      <div class="field">
-        <fieldset>
-          <legend>Which office?</legend>
-          <div class="choices"><label class="choice"><span class="radio"><input type="radio" name="office" value="Derry"><span class="radio__mark" aria-hidden="true"></span></span><span>Derry</span></label><label class="choice"><span class="radio"><input type="radio" name="office" value="Ballycastle"><span class="radio__mark" aria-hidden="true"></span></span><span>Ballycastle</span></label><label class="choice"><span class="radio"><input type="radio" name="office" value="Donegal Town"><span class="radio__mark" aria-hidden="true"></span></span><span>Donegal Town</span></label><label class="choice"><span class="radio"><input type="radio" name="office" value="No preference"><span class="radio__mark" aria-hidden="true"></span></span><span>No preference</span></label></div>
-        </fieldset>
-        <p class="field__error" id="f-office-err"></p>
-      </div>
-      <div class="field">
-        <fieldset>
-          <!-- Services list is a placeholder awaiting confirmation from the firm (see PRODUCT.md). -->
-          <legend>What can we help with? <span class="optional">(optional)</span></legend>
-          <div class="choices"><label class="choice"><span class="radio radio--check"><input type="checkbox" name="services" value="Annual accounts" data-sid="accounts"><span class="radio__mark" aria-hidden="true"></span></span><span>Annual accounts</span></label><label class="choice"><span class="radio radio--check"><input type="checkbox" name="services" value="Audit" data-sid="audit"><span class="radio__mark" aria-hidden="true"></span></span><span>Audit</span></label><label class="choice"><span class="radio radio--check"><input type="checkbox" name="services" value="Personal tax" data-sid="personal-tax"><span class="radio__mark" aria-hidden="true"></span></span><span>Personal tax</span></label><label class="choice"><span class="radio radio--check"><input type="checkbox" name="services" value="Company tax" data-sid="company-tax"><span class="radio__mark" aria-hidden="true"></span></span><span>Company tax</span></label><label class="choice"><span class="radio radio--check"><input type="checkbox" name="services" value="VAT and payroll" data-sid="vat-payroll"><span class="radio__mark" aria-hidden="true"></span></span><span>VAT and payroll</span></label><label class="choice"><span class="radio radio--check"><input type="checkbox" name="services" value="Bookkeeping" data-sid="bookkeeping"><span class="radio__mark" aria-hidden="true"></span></span><span>Bookkeeping</span></label><label class="choice"><span class="radio radio--check"><input type="checkbox" name="services" value="Company secretarial" data-sid="secretarial"><span class="radio__mark" aria-hidden="true"></span></span><span>Company secretarial</span></label><label class="choice"><span class="radio radio--check"><input type="checkbox" name="services" value="Financial advice" data-sid="advice"><span class="radio__mark" aria-hidden="true"></span></span><span>Financial advice</span></label></div>
-        </fieldset>
-      </div>
-      <div class="field">
-        <label for="f-msg">Anything else we should know? <span class="optional">(optional)</span></label>
-        <textarea class="input" id="f-msg" name="message" rows="5"></textarea>
-      </div>
-      <div class="form-status" data-status role="status" hidden></div>
-      <div><button class="btn" type="submit"><span data-label>Send enquiry</span> <svg class="icon arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></button></div>
-    </form>
-    <aside class="aside" aria-labelledby="call-h" data-reveal style="--i:1">
-      <h2 id="call-h">Rather talk?</h2>
-      <dl><div><dt>Derry</dt><dd><a class="tnum" href="tel:+442871266002">(028) 7126 6002</a></dd></div><div><dt>Ballycastle</dt><dd><a class="tnum" href="tel:+442820763687">(028) 2076 3687</a></dd></div><div><dt>Donegal Town</dt><dd><a class="tnum" href="tel:+353863018034">00353 86 301 8034</a></dd></div></dl>
-      <p>Calling Donegal Town from Northern Ireland or Great Britain? Dial the number as shown, starting 00353. We only use the details you send to reply to your enquiry.</p>
-    </aside>
-  </div>
-</section>
-<section class="section section--surface" aria-labelledby="offices-h">
+<section class="section" aria-labelledby="offices-h">
   <div class="wrap">
     <div class="section__head" data-reveal>
       <h2 id="offices-h">Our offices</h2>
-      <p>Directions open in Google Maps.</p>
+      <p>Calling Donegal Town from Northern Ireland or Great Britain? Dial the number as shown, starting 00353.</p>
     </div>
     <div class="offices"><article class="office" id="derry" data-reveal style="--i:0">
   <div>
@@ -139,6 +85,56 @@
   </p>
   </div>
 </article></div>
+  </div>
+</section>
+<section class="section section--surface" aria-labelledby="form-h">
+  <div class="wrap enquiry enquiry--solo">
+    <!-- Enquiries are sent through Formspree (works on any static host, including Firebase).
+         Replace YOUR_FORM_ID with the ID from formspree.io; see README. -->
+    <form name="enquiry" method="post" action="https://formspree.io/f/YOUR_FORM_ID" data-enquiry data-thanks="thanks.html" novalidate aria-labelledby="form-h" data-reveal>
+      <input type="hidden" name="_subject" value="New enquiry from the website">
+      <p class="hp"><label>Leave this empty <input name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
+      <h2 id="form-h" class="form__title">Send an enquiry</h2>
+      <div class="field">
+        <label for="f-name">Your name</label>
+        <input class="input" id="f-name" name="name" autocomplete="name" required>
+        <p class="field__error" id="f-name-err"></p>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="f-phone">Phone</label>
+          <input class="input tnum" id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel">
+          <p class="field__error" id="f-phone-err"></p>
+        </div>
+        <div class="field">
+          <label for="f-email">Email</label>
+          <input class="input" id="f-email" name="email" type="email" autocomplete="email">
+          <p class="field__error" id="f-email-err"></p>
+        </div>
+      </div>
+      <p class="hint">Give us a phone number or an email address, whichever you'd rather we used.</p>
+      <div class="field">
+        <fieldset>
+          <legend>Which office?</legend>
+          <div class="choices"><label class="choice"><span class="radio"><input type="radio" name="office" value="Derry"><span class="radio__mark" aria-hidden="true"></span></span><span>Derry</span></label><label class="choice"><span class="radio"><input type="radio" name="office" value="Ballycastle"><span class="radio__mark" aria-hidden="true"></span></span><span>Ballycastle</span></label><label class="choice"><span class="radio"><input type="radio" name="office" value="Donegal Town"><span class="radio__mark" aria-hidden="true"></span></span><span>Donegal Town</span></label><label class="choice"><span class="radio"><input type="radio" name="office" value="No preference"><span class="radio__mark" aria-hidden="true"></span></span><span>No preference</span></label></div>
+        </fieldset>
+        <p class="field__error" id="f-office-err"></p>
+      </div>
+      <div class="field">
+        <fieldset>
+          <!-- Services list is a placeholder awaiting confirmation from the firm (see PRODUCT.md). -->
+          <legend>What can we help with? <span class="optional">(optional)</span></legend>
+          <div class="choices"><label class="choice"><span class="radio radio--check"><input type="checkbox" name="services" value="Annual accounts" data-sid="accounts"><span class="radio__mark" aria-hidden="true"></span></span><span>Annual accounts</span></label><label class="choice"><span class="radio radio--check"><input type="checkbox" name="services" value="Audit" data-sid="audit"><span class="radio__mark" aria-hidden="true"></span></span><span>Audit</span></label><label class="choice"><span class="radio radio--check"><input type="checkbox" name="services" value="Personal tax" data-sid="personal-tax"><span class="radio__mark" aria-hidden="true"></span></span><span>Personal tax</span></label><label class="choice"><span class="radio radio--check"><input type="checkbox" name="services" value="Company tax" data-sid="company-tax"><span class="radio__mark" aria-hidden="true"></span></span><span>Company tax</span></label><label class="choice"><span class="radio radio--check"><input type="checkbox" name="services" value="VAT and payroll" data-sid="vat-payroll"><span class="radio__mark" aria-hidden="true"></span></span><span>VAT and payroll</span></label><label class="choice"><span class="radio radio--check"><input type="checkbox" name="services" value="Bookkeeping" data-sid="bookkeeping"><span class="radio__mark" aria-hidden="true"></span></span><span>Bookkeeping</span></label><label class="choice"><span class="radio radio--check"><input type="checkbox" name="services" value="Company secretarial" data-sid="secretarial"><span class="radio__mark" aria-hidden="true"></span></span><span>Company secretarial</span></label><label class="choice"><span class="radio radio--check"><input type="checkbox" name="services" value="Financial advice" data-sid="advice"><span class="radio__mark" aria-hidden="true"></span></span><span>Financial advice</span></label></div>
+        </fieldset>
+      </div>
+      <div class="field">
+        <label for="f-msg">Anything else we should know? <span class="optional">(optional)</span></label>
+        <textarea class="input" id="f-msg" name="message" rows="5"></textarea>
+      </div>
+      <div class="form-status" data-status role="status" hidden></div>
+      <div><button class="btn" type="submit"><span data-label>Send enquiry</span> <svg class="icon arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></button></div>
+      <p class="hint">We only use the details you send to reply to your enquiry.</p>
+    </form>
   </div>
 </section>
 

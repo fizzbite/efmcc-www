@@ -4,10 +4,10 @@ A static website for EF McCambridge & Co., Chartered Accountants & Registered Au
 
 ## Pages
 
-- `index.html`: home, with the nearest-office finder
+- `index.html`: home; "Find your nearest office" links to the contact page
 - `services.html`: services; ticked services carry over to the enquiry form
-- `team.html`: the directors and offices
-- `contact.html`: enquiry form, phone numbers and offices
+- `team.html`: the directors
+- `contact.html`: office map, the three offices, and the enquiry form
 - `thanks.html`: shown after an enquiry is sent
 - `404.html`: page not found
 
@@ -32,7 +32,7 @@ The Firebase project ID is set in `.firebaserc`. The workflow signs in to Google
 
 The contact form posts to [Formspree](https://formspree.io), so it works on any static host, including Firebase Hosting. To switch it on:
 
-1. Create a free Formspree account and a new form, with the address that should receive enquiries.
+1. Create a free Formspree account and a new form. Enquiries go to reception@efmccambridge.co.uk.
 2. Copy the form ID (the part after `/f/` in the endpoint URL).
 3. In `contact.html`, replace `YOUR_FORM_ID` in the form's `action` with that ID.
 
