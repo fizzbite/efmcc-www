@@ -43,6 +43,7 @@ Open decisions: the definitive services list (the old site lists none); a public
 - The logo: "EF McCambridge & Co." set in a black geometric sans, with the tagline "Chartered Accountants & Registered Auditors" in tracked capitals in a teal blue. Asset: `assets/logo-source.jpeg`.
 - The old site's styling is explicitly discarded.
 - Tone requested: modern and clean.
+- Voice (client feedback via Brian, 2026-11-16): corporate and enterprise, presenting a larger established practice. Third person ("the firm"), formal verbs ("submit", "contact"), no casual phrasing. Size is implied through tone only; no invented staff numbers, offices or claims.
 
 ## Evidence on Hand
 
