@@ -23,6 +23,8 @@ The public website of EF McCambridge & Co., Chartered Accountants & Registered A
 - Established in 1935, so a practice of over ninety years.
 - Director-led: the old site promised "personal attention from a partner at all times". The firm is now a limited company run by its directors.
 - Cross-border: it advises clients in Northern Ireland and the Republic of Ireland on the taxation and company law of both jurisdictions.
+- Chartered Tax Advisers (Brian, 2026-11-17): describe the firm as Chartered Accountants, Chartered Tax Advisers and Registered Auditors.
+- Wording (Brian, 2026-11-17): say "the UK and Ireland", not "NI and ROI" or "Northern Ireland and the Republic of Ireland". The company registration line keeps "Registered in Northern Ireland", as that is the legal statement.
 - Three offices: Derry (main), Ballycastle and Donegal Town.
 
 ## Capabilities and Constraints
@@ -43,6 +45,7 @@ Open decisions: the definitive services list (the old site lists none); a public
 - The logo: "EF McCambridge & Co." set in a black geometric sans, with the tagline "Chartered Accountants & Registered Auditors" in tracked capitals in a teal blue. Asset: `assets/logo-source.jpeg`.
 - The old site's styling is explicitly discarded.
 - Tone requested: modern and clean.
+- Voice (client feedback via Brian, 2026-11-16): corporate and enterprise, presenting a larger established practice. Third person ("the firm"), formal verbs ("submit", "contact"), no casual phrasing. Size is implied through tone only; no invented staff numbers, offices or claims.
 
 ## Evidence on Hand
 
