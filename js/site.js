@@ -180,13 +180,13 @@
     var count = svcForm.querySelector("[data-count]");
     var update = function () {
       var n = svcForm.querySelectorAll('input[name="s"]:checked').length;
-      count.textContent = n === 0 ? "Nothing ticked yet." : n === 1 ? "1 service ticked." : n + " services ticked.";
+      count.textContent = n === 0 ? "No services selected." : n === 1 ? "1 service selected." : n + " services selected.";
     };
     svcForm.addEventListener("change", update);
     svcForm.addEventListener("submit", function (e) {
       if (!svcForm.querySelector('input[name="s"]:checked')) {
         e.preventDefault();
-        count.textContent = "Tick at least one service first, or ring us to talk it through.";
+        count.textContent = "Please select at least one service, or contact your nearest office.";
       }
     });
     update();
@@ -222,24 +222,24 @@
     var phone = form.elements.phone.value.trim();
     var email = form.elements.email.value.trim();
 
-    setError("f-name", name ? "" : "Please tell us your name.");
+    setError("f-name", name ? "" : "Please enter your full name.");
     if (!name) first = first || form.elements.name;
 
     setError("f-phone", "");
     setError("f-email", "");
     if (!phone && !email) {
-      setError("f-phone", "Add a phone number or an email address so we can reply.");
+      setError("f-phone", "Please provide a telephone number or email address.");
       first = first || form.elements.phone;
     } else if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      setError("f-email", "That email address doesn't look complete. Check it, or leave it blank and give a phone number.");
+      setError("f-email", "Please enter a valid email address, or provide a telephone number instead.");
       first = first || form.elements.email;
     } else if (phone && phone.replace(/\D/g, "").length < 7) {
-      setError("f-phone", "That phone number looks too short.");
+      setError("f-phone", "Please enter a valid telephone number.");
       first = first || form.elements.phone;
     }
 
     var office = form.querySelector('input[name="office"]:checked');
-    setError("f-office", office ? "" : "Pick an office, or choose No preference.");
+    setError("f-office", office ? "" : "Please select an office, or choose No preference.");
     if (!office) first = first || form.querySelector('input[name="office"]');
 
     if (first && focus) first.focus();
@@ -259,7 +259,7 @@
 
     var endpoint = form.getAttribute("action");
     if (/YOUR_FORM_ID/.test(endpoint)) {
-      showError("Sorry, online enquiries aren’t switched on yet. Please ring our Derry office on");
+      showError("Online enquiries are not yet available. Please call our Derry office on");
       return;
     }
 
@@ -279,8 +279,8 @@
       })
       .catch(function () {
         btn.disabled = false;
-        label.textContent = "Send enquiry";
-        showError("Sorry, your enquiry didn’t send. Please try again in a moment, or ring our Derry office on");
+        label.textContent = "Submit enquiry";
+        showError("Your enquiry could not be sent. Please try again shortly, or call our Derry office on");
       });
   });
 

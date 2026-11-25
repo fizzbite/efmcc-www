@@ -6,7 +6,7 @@ A static website for EF McCambridge & Co., Chartered Accountants & Registered Au
 
 - `index.html`: home; "Find your nearest office" links to the contact page
 - `services.html`: services; ticked services carry over to the enquiry form
-- `team.html`: the directors
+- `team.html`: Leadership (the directors)
 - `contact.html`: office map, the three offices, and the enquiry form
 - `thanks.html`: shown after an enquiry is sent
 - `404.html`: page not found
