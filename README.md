@@ -58,3 +58,10 @@ Pin positions are the `lat`/`lng` values in each page's map data. Derry and Ball
 ## Fonts
 
 Jost is self-hosted from `assets/fonts/` under the SIL Open Font License 1.1.
+
+## Search (SEO)
+
+- Each page has a title, meta description, canonical URL and Open Graph tags pointing at `https://efmccambridge.co.uk/`. `thanks.html` and `404.html` are marked `noindex`.
+- `index.html` and `contact.html` carry the same JSON-LD block describing the firm and its three offices (address, phone, map position). If an office, phone number or director changes, update that block in both files as well as the visible text.
+- `sitemap.xml` lists the four public pages; add any new page there and bump its `lastmod`. `robots.txt` points crawlers at it.
+- `assets/og-image.png` (1200×630) is the preview image shown when the site is shared; `assets/apple-touch-icon.png` is the icon for home screens and search results.
