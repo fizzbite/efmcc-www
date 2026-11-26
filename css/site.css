@@ -107,7 +107,7 @@ p { margin: 0; text-wrap: pretty; }
 .wordmark:hover { color: var(--ink); }
 .wordmark__name { font-weight: 600; font-size: 1em; letter-spacing: -0.035em; white-space: nowrap; }
 /* Tagline sized from the name: narrower than it and right-aligned, as in the logo */
-.wordmark__tag { margin-top: 0.5em; font-size: 0.25em; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); font-weight: 450; white-space: nowrap; }
+.wordmark__tag { display: flex; flex-direction: column; align-items: flex-end; gap: 0.35em; margin-top: 0.5em; font-size: 0.25em; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); font-weight: 450; white-space: nowrap; }
 
 .nav { display: flex; align-items: center; gap: clamp(0.5rem, 1.5vw, 1.75rem); }
 .nav__list { display: flex; gap: clamp(0.25rem, 1.2vw, 1.25rem); list-style: none; margin: 0; padding: 0; }

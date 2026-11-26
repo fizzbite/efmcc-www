@@ -16,7 +16,7 @@ Assumed, awaiting confirmation: owners of small and family businesses, sole trad
 
 ## Product Purpose
 
-The public website of EF McCambridge & Co., Chartered Accountants & Registered Auditors. It should tell a prospective client who the firm is, what it does, who they will deal with, and how to reach the nearest office. Success is a phone call or enquiry to the right office.
+The public website of EF McCambridge & Co., Chartered Accountants, Chartered Tax Advisers & Registered Auditors. It should tell a prospective client who the firm is, what it does, who they will deal with, and how to reach the nearest office. Success is a phone call or enquiry to the right office.
 
 ## Positioning
 
@@ -42,7 +42,7 @@ Open decisions: the definitive services list (the old site lists none); a public
 
 ## Brand Commitments
 
-- The logo: "EF McCambridge & Co." set in a black geometric sans, with the tagline "Chartered Accountants & Registered Auditors" in tracked capitals in a teal blue. Asset: `assets/logo-source.jpeg`.
+- The logo: "EF McCambridge & Co." set in a black geometric sans, with the tagline "Chartered Accountants & Registered Auditors" in tracked capitals in a teal blue. On the site the tagline reads "Chartered Accountants & Chartered Tax Advisers" over "Registered Auditors" (Brian, 2026-11-26); the source image still has the old tagline. Asset: `assets/logo-source.jpeg`.
 - The old site's styling is explicitly discarded.
 - Tone requested: modern and clean.
 - Voice (client feedback via Brian, 2026-11-16): corporate and enterprise, presenting a larger established practice. Third person ("the firm"), formal verbs ("submit", "contact"), no casual phrasing. Size is implied through tone only; no invented staff numbers, offices or claims.

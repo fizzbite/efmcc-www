@@ -1,6 +1,6 @@
 # EF McCambridge & Co. website
 
-A static website for EF McCambridge & Co., Chartered Accountants & Registered Auditors. It is plain HTML, CSS and a little JavaScript, with no build step, so it can be hosted on any static host.
+A static website for EF McCambridge & Co., Chartered Accountants, Chartered Tax Advisers & Registered Auditors. It is plain HTML, CSS and a little JavaScript, with no build step, so it can be hosted on any static host.
 
 ## Pages
 
