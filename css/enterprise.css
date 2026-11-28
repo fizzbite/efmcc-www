@@ -91,14 +91,14 @@
 /* Bridge graphic */
 .hero__bridge {
   position: absolute;
-  right: -2%;
-  top: 50%;
-  transform: translateY(-48%);
-  width: min(58vw, 680px);
+  right: -8%;
+  top: 42%;
+  transform: translateY(-50%);
+  width: min(68vw, 820px);
   height: auto;
   color: #3db5cc;
   pointer-events: none;
-  opacity: 0.9;
+  opacity: 0.92;
   z-index: 0;
 }
 .hero__bridge svg { width: 100%; height: auto; }
