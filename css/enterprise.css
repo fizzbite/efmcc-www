@@ -1,0 +1,27 @@
+/* Enterprise Peace Bridge hero overrides */
+.hero--enterprise {
+  background: linear-gradient(180deg, #0f1417 0%, #152028 100%);
+  color: #e8f0f3;
+  position: relative;
+}
+.hero--enterprise .hero__lede,
+.hero--enterprise .fact dt { color: #9fb3ba; }
+.hero--enterprise .fact dd { color: #fff; }
+.hero--enterprise .btn--ghost { color: #e8f0f3; border-color: rgba(255,255,255,0.25); }
+.hero--enterprise .btn--ghost:hover { background: rgba(255,255,255,0.08); border-color: #7cc3dc; }
+.hero--enterprise h1 .accent { color: #7cc3dc; }
+.hero__bridge {
+  position: absolute;
+  right: -5%;
+  bottom: 10%;
+  width: min(55vw, 520px);
+  height: auto;
+  color: #7cc3dc;
+  pointer-events: none;
+  opacity: 0.85;
+  z-index: 0;
+}
+.hero--enterprise .wrap { position: relative; z-index: 1; }
+@media (max-width: 900px) {
+  .hero__bridge { width: 80vw; right: -10%; bottom: 0; opacity: 0.45; }
+}
